@@ -15,9 +15,19 @@ func TestUser_Validate(t *testing.T) {
 		isValid bool
 	} {
 		{
-			name: "Valid",
+			name: "valid",
 			u: func() *model.User {
 				return model.TestUser(t)
+			},
+			isValid: true,
+		},
+		{
+			name: "with encrypt password",
+			u: func() *model.User {
+				u := model.TestUser(t)
+				u.Password = ""
+				u.EncryptedPassword = "encryptedpassword"
+				return u
 			},
 			isValid: true,
 		},
