@@ -1,8 +1,9 @@
-package store
+package sqlstore
 
 import (
 	"database/sql"
 	_ "github.com/lib/pq"
+	"go-rest-api/internal/app/store"
 )
 
 type Store struct {
@@ -16,7 +17,7 @@ func New(db *sql.DB) *Store {
 	}
 }
 
-func (s *Store) User() *UserRepository {
+func (s *Store) User() store.UserRepository {
 	if s.userRepository != nil {
 		return s.userRepository
 	}
