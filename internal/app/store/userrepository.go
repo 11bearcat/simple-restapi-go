@@ -36,6 +36,7 @@ func (r *UserRepository) FindByEmail(email string) (*model.User, error) {
 	).Scan(
 		&u.ID,
 		&u.Email,
+		&u.EncryptedPassword,
 	); err != nil {
 		return nil, err
 	}
