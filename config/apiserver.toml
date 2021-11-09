@@ -1,3 +1,4 @@
 bind_addr = ":8080"
 log_level = "debug"
 database_url = "host=127.0.0.1 user=root password=root dbname=rest_api_go sslmode=disable"
+session_key = "12312d1d1d1wd1"
